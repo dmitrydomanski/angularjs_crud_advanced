@@ -1,0 +1,19 @@
+<div ng-class="{active: isSelectedBookmark(bookmark.id)}" 
+     ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter:{category:bookmarksListCtrl.getCurrentCategoryName()}">
+        <button type="button" class="close" ng-click="bookmarksListCtrl.deleteBookmark(bookmark)">&times;</button>
+        <button type="button" class="btn btn-link"
+                ui-sref="crudapp.categories.bookmarks.edit({ bookmarkId:bookmark.id})" >
+                <i class="far fa-edit"></i>
+        </button>
+        <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+    </div>
+    <hr/>
+    <ui-view>
+        <div ng-if="bookmarksListCtrl.getCurrentCategory()">
+            <button type="button" class="btn btn-link"
+                    ui-sref="crudapp.categories.bookmarks.create">
+                    <i class="fas fa-plus"></i>
+                Create Bookmark
+            </button>
+        </div>
+    </ui-view>

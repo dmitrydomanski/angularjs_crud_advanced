@@ -1,0 +1,11 @@
+<ul class="nav nav-sidebar">
+    <li ng-repeat="category in categoriesListCtrl.categories" ng-class="{'active':isCurrentCategory(category)}">
+        <a ui-sref="crudapp.categories.bookmarks({category:category.name})" ng-click="setCurrentCategory(category)">
+            {{category.name}} </a>
+    </li>
+</ul>
+
+<div 
+ ng-click="setCurrentCategory(category)"
+ ui-sref="crudapp.categories"
+ style="font-size: larger; color: crimson; cursor: pointer">Reset filter</div>
